@@ -1,0 +1,6 @@
+<div>
+    <app-todo-header [total]="todos.length"  [completed]="completed"></app-todo-header>  
+    <app-todo-item *ngFor="let todo of todos;" [todo]="todo" (onStatusChange)="onTodoStatusChange($event)"></app-todo-item>
+    <app-todo-footer (onAdd)="onTodoAdd($event)"></app-todo-footer> 
+</div>
+
