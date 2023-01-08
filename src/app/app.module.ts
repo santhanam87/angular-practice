@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { EmployeeListContainerComponent } from './components/employee-list-container/employee-list-container.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
     TodoFooterComponent,
     TodoItemComponent,
     EmployeeListComponent,
+    EmployeeListContainerComponent,
   ],
   imports: [
     BrowserModule,
