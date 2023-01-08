@@ -9,6 +9,8 @@ import { TodoFooterComponent } from './components/todo/todo-footer/todo-footer.c
 import { TodoItemComponent } from './components/todo/todo-item/todo-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { HttpClientModule } from '@angular/common/http';
     TodoHeaderComponent,
     TodoFooterComponent,
     TodoItemComponent,
+    EmployeeListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent],
