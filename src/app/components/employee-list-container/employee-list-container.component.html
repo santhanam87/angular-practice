@@ -1,6 +1,18 @@
 <div>
     <section class="overview">
-        <h1>Overview</h1>
         <div id="chart"></div>
-      </section>
+    </section>
+    <section>
+        <div class="addEmployee">
+        </div>
+        <div class="employeeListContainer">
+            <section>
+                <app-add-employee (add)="rndList = onAddEmployee(rndList, $event)"></app-add-employee>
+                <app-employee-list [employeeList]="rndList"></app-employee-list>
+            </section><section>
+                <app-add-employee (add)="salesList = onAddEmployee(salesList, $event)"></app-add-employee>
+                <app-employee-list [employeeList]="salesList"></app-employee-list>
+            </section>
+        </div>
+    </section>
 </div>

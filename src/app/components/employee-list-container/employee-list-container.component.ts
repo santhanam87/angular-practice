@@ -2,9 +2,13 @@ import { Component } from '@angular/core';
 import { OnInit, NgZone } from '@angular/core';
 
 import * as Plotly from 'plotly.js-dist-min';
-import { EmployeeData } from './types';
+import { EmployeeData } from '../../types/types';
 import { Rnd } from 'src/app/data/rnd';
 import { Sales } from 'src/app/data/sales';
+import { CommonService } from 'src/app/services/common/common.service';
+import { List } from 'immutable';
+
+const NumRange: [number, number] = [23, 28];
 
 @Component({
   selector: 'app-employee-list-container',
@@ -12,9 +16,13 @@ import { Sales } from 'src/app/data/sales';
   styleUrls: ['./employee-list-container.component.scss'],
 })
 export class EmployeeListContainerComponent implements OnInit {
-  rndList: EmployeeData[] = Rnd;
-  salesList: EmployeeData[] = Sales;
-  constructor(private _ngZone: NgZone) {}
+  rndList: List<EmployeeData> = List(Rnd);
+  salesList: List<EmployeeData> = List(Sales);
+  constructor(private _ngZone: NgZone, private _commonService: CommonService) {}
+  onAddEmployee(list: List<EmployeeData>, { label }: { label: string }) {
+    const num = this._commonService.generateNumber(NumRange);
+    return list.unshift({ label, num });
+  }
   ngOnInit() {
     const mapValues = new Map<number, number>();
     this.rndList.concat(this.salesList).forEach(({ num, label }) => {

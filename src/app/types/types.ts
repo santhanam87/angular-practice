@@ -3,3 +3,8 @@ export type TODO = {
   completed: boolean;
   order: number;
 };
+
+export type EmployeeData = {
+  label: string;
+  num: number;
+};
