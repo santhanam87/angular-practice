@@ -1,0 +1,8 @@
+<div>
+    <div *ngFor="let item of childInput">
+        {{item}}
+    </div>    
+    <mat-form-field appearance="fill">
+        <input placeholder="Enter name here" matInput type="text" [(ngModel)]="label" (keydown)="handleKey($event)">
+    </mat-form-field>
+</div>

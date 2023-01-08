@@ -16,6 +16,8 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeeListContainerComponent } from './components/employee-list-container/employee-list-container.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { FibonacciPipe } from './pipes/fibonacci.pipe';
+import { ChangeDetectionComponent } from './components/change-detection/change-detection.component';
+import { PushDetectionComponent } from './components/change-detection/push-detection/push-detection.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { FibonacciPipe } from './pipes/fibonacci.pipe';
     EmployeeListContainerComponent,
     AddEmployeeComponent,
     FibonacciPipe,
+    ChangeDetectionComponent,
+    PushDetectionComponent,
   ],
   imports: [
     BrowserModule,
