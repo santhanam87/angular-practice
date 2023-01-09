@@ -21,7 +21,10 @@ const collectionInitialState: string[] = [];
 export const DomesticItemCollectionReducer = createReducer(
   collectionInitialState,
   on(DomesticItemAction.addDomesticItem, (state, { sku }) => [sku, ...state]),
-  on(DomesticItemAction.removeDomesticItem, (state, { sku }) =>
-    state.splice(state.indexOf(sku), 1)
-  )
+  on(DomesticItemAction.removeDomesticItem, (state, { sku }) => {
+    console.info(state, sku);
+    const domesticItems = [...state];
+    domesticItems.splice(state.indexOf(sku), 1);
+    return domesticItems;
+  })
 );

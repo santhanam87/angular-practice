@@ -1,1 +1,9 @@
-<p>domestic-items works!</p>
+<mat-list>
+    <mat-list-item *ngFor="let domesticItem of $domesticItems | async">
+    <button matListItemIcon mat-button (click)="removeItem(domesticItem)">X</button>
+      <h3 matListItemTitle>{{domesticItem.sku}} </h3>
+      <p matListItemLine>
+        <span>{{domesticItem.itemName}}</span>
+      </p>
+    </mat-list-item>
+</mat-list>
