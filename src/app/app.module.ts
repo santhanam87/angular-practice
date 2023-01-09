@@ -18,6 +18,11 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
 import { FibonacciPipe } from './pipes/fibonacci.pipe';
 import { ChangeDetectionComponent } from './components/change-detection/change-detection.component';
 import { PushDetectionComponent } from './components/change-detection/push-detection/push-detection.component';
+import {
+  DomesticItemCollectionReducer,
+  DomesticItemsReducer,
+} from './state/domestictItem.reducers';
+import { DomesticItemsComponent } from './components/domestic-items/domestic-items.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +33,7 @@ import { PushDetectionComponent } from './components/change-detection/push-detec
     FibonacciPipe,
     ChangeDetectionComponent,
     PushDetectionComponent,
+    DomesticItemsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,10 @@ import { PushDetectionComponent } from './components/change-detection/push-detec
     MatInputModule,
     MatChipsModule,
     MatSelectModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({
+      domesticItems: DomesticItemsReducer,
+      domestItemCollection: DomesticItemCollectionReducer,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
