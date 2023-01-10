@@ -1,34 +1,31 @@
-export type NodeType = {
+export interface KeyWise {
   key: string;
-  value: number;
-};
-export interface ListNode {
-  data: NodeType;
-  next: ListNode | null;
 }
-
-export class LLNode implements ListNode {
+export interface ListNode<InputType> {
+  data: InputType;
+  next: ListNode<InputType> | null;
+}
+export class LLNode<InputType> implements ListNode<InputType> {
   public data;
   public next;
-  constructor(data: NodeType, next: ListNode | null) {
+  constructor(data: InputType, next: ListNode<InputType> | null) {
     this.data = data;
     this.next = next;
   }
 }
-
-export class LinkedList {
-  head: ListNode | null = null;
-  tail: ListNode | null = null;
-  insertAtTop(data: NodeType) {
+export class LinkedList<InputType extends KeyWise> {
+  head: ListNode<InputType> | null = null;
+  tail: ListNode<InputType> | null = null;
+  insertAtTop(data: InputType) {
     if (this.head == null) {
-      this.head = new LLNode(data, null);
+      this.head = new LLNode<InputType>(data, null);
       this.tail = this.head;
     } else {
       const newNode = new LLNode(data, this.head);
       this.head = newNode;
     }
   }
-  insertAtTail(data: NodeType) {
+  insertAtTail(data: InputType) {
     if (this.tail === null) {
       this.insertAtTop(data);
     } else {
@@ -51,7 +48,7 @@ export class LinkedList {
     let node = this.head;
     let listring = '';
     while (node != null) {
-      listring += '-->' + node.data.key + '|' + String(node.data.value);
+      listring += '-->' + node.data.key + '|' + JSON.stringify(node.data);
       node = node.next;
     }
     listring += '--> None';

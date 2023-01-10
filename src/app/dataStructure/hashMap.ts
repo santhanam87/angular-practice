@@ -1,7 +1,7 @@
-import { LinkedList } from './linkedList';
+import { LinkedList, KeyWise } from './linkedList';
 
-export class HashTable {
-  private _hashTable: Record<string, LinkedList> = {};
+export class HashTable<NodeType extends KeyWise> {
+  private _hashTable: Record<string, LinkedList<NodeType>> = {};
   private _customHash = (hashKey: string) => {
     return (
       hashKey
@@ -13,12 +13,12 @@ export class HashTable {
         ) % this._tableSize
     );
   };
-  public addKeyValue = ({ key, value }: { key: string; value: number }) => {
-    const keyHash = this._customHash(key);
+  public addKeyValue = (inputNode: NodeType) => {
+    const keyHash = this._customHash(inputNode.key);
     if (!this._hashTable[keyHash]) {
-      this._hashTable[keyHash] = new LinkedList();
+      this._hashTable[keyHash] = new LinkedList<NodeType>();
     }
-    this._hashTable[keyHash].insertAtTail({ key, value });
+    this._hashTable[keyHash].insertAtTail(inputNode);
   };
   public getKeyValue = (key: string) => {
     const keyHash = this._customHash(key);
