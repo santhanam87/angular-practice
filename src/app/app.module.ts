@@ -23,6 +23,7 @@ import {
   DomesticItemsReducer,
 } from './state/domestictItem.reducers';
 import { DomesticItemsComponent } from './components/domestic-items/domestic-items.component';
+import { LinkedListComponent } from './components/linked-list/linked-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DomesticItemsComponent } from './components/domestic-items/domestic-ite
     ChangeDetectionComponent,
     PushDetectionComponent,
     DomesticItemsComponent,
+    LinkedListComponent,
   ],
   imports: [
     BrowserModule,

@@ -48,7 +48,7 @@ export class LinkedList<InputType extends KeyWise> {
     let node = this.head;
     let listring = '';
     while (node != null) {
-      listring += '-->' + node.data.key + '|' + JSON.stringify(node.data);
+      listring += '-->' + node.data.key;
       node = node.next;
     }
     listring += '--> None';
