@@ -24,6 +24,7 @@ import {
 } from './state/domestictItem.reducers';
 import { DomesticItemsComponent } from './components/domestic-items/domestic-items.component';
 import { LinkedListComponent } from './components/linked-list/linked-list.component';
+import { BinaryTreeComponent } from './components/binary-tree/binary-tree.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LinkedListComponent } from './components/linked-list/linked-list.compon
     PushDetectionComponent,
     DomesticItemsComponent,
     LinkedListComponent,
+    BinaryTreeComponent,
   ],
   imports: [
     BrowserModule,

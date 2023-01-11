@@ -19,7 +19,7 @@ export class LinkedListComponent {
   employeeNames: string[] = [];
   constructor() {
     this.employeeList = new LinkedList<Employee>();
-    Employees.forEach((employee) => this.employeeList?.insertAtTail(employee));
+    Employees.forEach((employee) => this.employeeList?.insertAtTop(employee));
     this.employeeNames = this.getEmployeesName();
     console.info(this.getEmployeeByKey('63bce0db2f5b1ec6978ae15e'));
   }
