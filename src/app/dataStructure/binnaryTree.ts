@@ -26,17 +26,19 @@ export class BinnaryTree {
     }
     return root;
   }
-  printTree(): Array<number | null> {
+  printTree(): Array<number | null>[] {
     if (this.head == null) {
       return [];
     }
-    let treeArray: Array<number | null> = [];
+    let treeArray: Array<number | null>[] = [];
     let treeQueue = new Queue();
     treeQueue.enQueue(this.head);
     while (treeQueue.length()) {
-      for (let i = 0; i < treeQueue.length(); i++) {
+      let levelArray: Array<number | null> = [];
+      let queueLength = treeQueue.length();
+      for (let i = 0; i < queueLength; i++) {
         let node = treeQueue.deQueue() as TreeNode;
-        treeArray.push(node.value);
+        levelArray.push(node.value);
         if (node.left) {
           treeQueue.enQueue(node.left);
         }
@@ -44,6 +46,7 @@ export class BinnaryTree {
           treeQueue.enQueue(node.right);
         }
       }
+      treeArray.push(levelArray);
     }
     return treeArray;
   }
